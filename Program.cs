@@ -80,6 +80,7 @@ while (unlock == true)
 
             System.Console.WriteLine("Ттрррр....");
             System.Console.WriteLine("Ттрррр....");
+            for (int i = 0; i < 1999999999; i++) { }
             System.Console.WriteLine("Ттрррр....");
             if (snatie > balance)
             {
@@ -89,6 +90,7 @@ while (unlock == true)
             else
             {
                 System.Console.WriteLine("Еще немного... готовим купюры...");
+                for (int i = 0; i < 1999999999; i++) { }
                 System.Console.WriteLine("Ттрррр....");
                 balance = balance - snatie;
                 istoia();
@@ -115,6 +117,7 @@ while (unlock == true)
             System.Console.WriteLine("Еще немного... отправляю данные в банк...");
             System.Console.WriteLine("Ттрррр....");
             System.Console.WriteLine("Соединение с защищенным каналом....");
+            for (int i = 0; i < 1999999999; i++) { }
             System.Console.WriteLine("Ттрррр....");
             balance = balance + popolnenie;
             istoia();
@@ -141,34 +144,41 @@ while (unlock == true)
             {
                 System.Console.WriteLine("Введить сумму перевода:");
                 int sum = int.Parse(Console.ReadLine()!);
+                if (sum > balance)
+                {
+                    System.Console.WriteLine("Недостаточно средств!");
+                }
+                else{
                 System.Console.WriteLine("Обработка....");
                 System.Console.WriteLine("Еще немного... отправляю данные в банк...");
                 System.Console.WriteLine("Ожидаю ответ от банка получателя....");
                 System.Console.WriteLine("Соединение с защищенным каналом....");
                 System.Console.WriteLine("Ттрррр....");
-                if (sum >= 10000)
-                {
-                    System.Console.WriteLine("Внимание! Слишком большая сумма, банк проверит платеж! Переводя деньги под влиянием мошенников - банк вернуть не сможет их");
-                    for (int i = 0; i < 1999999999; i++) { }
-                    System.Console.WriteLine("Не нашли в платеже ничего подозрительного, простите за доставленные неудобства, ваша безопасность - наш приоритет!");
-                    balance = balance - sum;
-                    istoia();
-                    history[2] = $"{sum} переведена на номер {telefon}!";
-                    System.Console.WriteLine($"{sum} переведена на номер {telefon}");
-                }
-                else
-                {
-                    balance = balance - sum;
-                    istoia();
-                    history[2] = $"{sum} переведена на номер {telefon}!";
-                    System.Console.WriteLine($"{sum} переведена на номер {telefon}");
-                    System.Console.WriteLine("Банков много, а СаньКофф - один");
+                    if (sum >= 10000)
+                    {
+                        System.Console.WriteLine("Внимание! Слишком большая сумма, банк проверит платеж! Переводя деньги под влиянием мошенников - банк вернуть не сможет их");
+                        for (int i = 0; i < 1999999999; i++) { }
+                        System.Console.WriteLine("Не нашли в платеже ничего подозрительного, простите за доставленные неудобства, ваша безопасность - наш приоритет!");
+                        balance = balance - sum;
+                        istoia();
+                        history[2] = $"{sum} переведена на номер {telefon}!";
+                        System.Console.WriteLine($"{sum} переведена на номер {telefon}");
+                    }
+                    else
+                    {
+                        balance = balance - sum;
+                        istoia();
+                        history[2] = $"{sum} переведена на номер {telefon}!";
+                        System.Console.WriteLine($"{sum} переведена на номер {telefon}");
+                        System.Console.WriteLine("Банков много, а СаньКофф - один");
+                    }
                 }
             }
             else
-            {
-                System.Console.WriteLine("Номер телефона не верный! Проверьте телефон еще раз");
-            }
+                {
+                    System.Console.WriteLine("Номер телефона не верный! Проверьте телефон еще раз");
+                }
+            
             System.Console.WriteLine("Чтобы вернуться в меню введите 1");
             int mainback = int.Parse(Console.ReadLine()!);
             if (mainback == 1)
